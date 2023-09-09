@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title"><span>HW3 JS Game Tic Tac Toe</span> </h1>
+    <div class="status-action">
+      <div class="status">× is next</div>
+      <div class="reset">Reset</div>
+    </div>
+    
+    <div class="game-grid">
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+      <div class="game-cell"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    // 使用JavaScript获取用户的IP地址
+    fetch('https://api64.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ipAddress = data.ip;
+        document.getElementById('ip-address').textContent = `IP Address: ${ipAddress}`;
+      })
+      .catch(error => {
+        console.error('Error fetching IP address:', error);
+        document.getElementById('ip-address').textContent = 'IP Address: Error';
+      });
+    
+    // 使用JavaScript获取当前时间并更新页面
+    function updateCurrentTime() {
+      const currentTime = new Date();
+      const formattedTime = currentTime.toLocaleTimeString();
+      document.getElementById('current-time').textContent = `Current Time: ${formattedTime}`;
+    }
+    
+    // 每隔一秒更新一次时间
+    setInterval(updateCurrentTime, 1000);
+    
+    // 页面加载时立即更新时间
+    updateCurrentTime();
+  </script>
+  <footer>
+    <p>&copy; 2023 Wade0125Studio. All rights reserved.</p>
+    <p id="ip-address">IP Address: Loading...</p>
+    <p id="current-time">Current Time: Loading...</p>
+  </footer>
+
+
+</body>
+</html>
